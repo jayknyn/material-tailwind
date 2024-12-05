@@ -1,11 +1,12 @@
 name: Publish Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [main]
 
 jobs:
   publish:
+    name: Build and publish to Github Packages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
