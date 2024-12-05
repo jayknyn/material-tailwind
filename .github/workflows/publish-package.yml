@@ -15,7 +15,7 @@ jobs:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
       - run: cd packages/material-tailwind-react
-      - run: npm ci
+      - run: npm install
       - run: npm run build
       - run: npm publish
         env:
