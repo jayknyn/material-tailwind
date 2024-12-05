@@ -8,13 +8,18 @@ jobs:
   publish:
     name: Build and publish to Github Packages
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        working-directory: ./packages/material-tailwind-react
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
-      - run: cd packages/material-tailwind-react
       - run: npm install
       - run: npm run build
       - run: npm publish
